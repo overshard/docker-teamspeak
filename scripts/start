@@ -19,6 +19,12 @@ then
     ln -s /data/ts3server.sqlitedb /opt/teamspeak/ts3server.sqlitedb
 fi
 
+if [ -f /opt/teamspeak/ts3server.sqlitedb ] && [ -f /data/ts3server.sqlitedb ]
+then
+    rm /opt/teamspeak/ts3server.sqlitedb
+    ln -s /data/ts3server.sqlitedb /opt/teamspeak/ts3server.sqlitedb
+fi
+
 
 # Run the teamspeak server
 export LD_LIBRARY_PATH=/opt/teamspeak
