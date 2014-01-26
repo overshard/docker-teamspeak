@@ -39,7 +39,7 @@ add    ./scripts/start /start
 
 
 # Fix all permissions
-run	   chmod +x /start
+run    chmod +x /start
 
 
 # /start runs it.
