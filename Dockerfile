@@ -44,6 +44,8 @@ run    chmod +x /start
 
 # /start runs it.
 expose 9987/udp
+expose 10011
+expose 30033
 volume ["/data"]
 cmd    ["/start"]
 

@@ -19,11 +19,12 @@ docker-teamspeak and TeamSpeak itself.
 
 Running the first time will set your port to a static port of your choice so
 that you can easily map a proxy to. If this is the only thing running on your
-system you can map the port to 9987 and no proxy is needed. i.e.
-`-p=9987:9987` Also be sure your mounted directory on your host machine is
-already created before running `mkdir -p /mnt/teamspeak`.
+system you can map the ports to 9987, 10011, 30033 and no proxy is needed. i.e.
+`-p=9987:9987/udp  -p=10011:10011 -p=30033:30033` Also be sure your mounted
+directory on your host machine is already created before running
+`mkdir -p /mnt/teamspeak`.
 
-    sudo docker run -d=true -p=9987:9987/udp -v=/mnt/teamspeak:/data overshard/teamspeak /start
+    sudo docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
 
 From now on when you start/stop docker-teamspeak you should use the container id
 with the following commands. To get your container id, after you initial run
