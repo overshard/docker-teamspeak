@@ -5,13 +5,13 @@
 # (http://teamspeak.com/).
 #
 # Authors: Isaac Bythewood
-# Updated: Jan 25th, 2014
+# Updated: Aug 6th, 2014
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
 
 # Base system is the LTS version of Ubuntu.
-from   ubuntu:13.10
+from   ubuntu:14.04
 
 
 # Make sure we don't get notifications we can't answer during building.
@@ -19,13 +19,12 @@ env    DEBIAN_FRONTEND noninteractive
 
 
 # Download and install everything from the repos.
-add    ./apt/sources.list /etc/apt/sources.list
 run    apt-get --yes update; apt-get --yes upgrade
-run	   apt-get --yes install wget
+run	   apt-get --yes install curl
 
 
 # Download and install TeamSpeak 3
-run    wget http://ftp.4players.de/pub/hosted/ts3/releases/3.0.10.3/teamspeak3-server_linux-amd64-3.0.10.3.tar.gz
+run    curl "http://ftp.4players.de/pub/hosted/ts3/releases/3.0.10.3/teamspeak3-server_linux-amd64-3.0.10.3.tar.gz" -o teamspeak3-server_linux-amd64-3.0.10.3.tar.gz
 run    tar zxf teamspeak3-server_linux-amd64-3.0.10.3.tar.gz; mv teamspeak3-server_linux-amd64 /opt/teamspeak; rm teamspeak3-server_linux-amd64-3.0.10.3.tar.gz
 
 
@@ -43,4 +42,3 @@ expose 10011
 expose 30033
 volume ["/data"]
 cmd    ["/start"]
-
