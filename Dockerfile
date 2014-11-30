@@ -8,10 +8,12 @@
 # Updated: Aug 6th, 2014
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
+FROM  debian:latest
 
 
 # Base system is the LTS version of Ubuntu.
 FROM   ubuntu:14.04
+FROM   debian:latest
 
 
 # Make sure we don't get notifications we can't answer during building.
