@@ -13,7 +13,6 @@ FROM  debian:latest
 
 # Base system is the LTS version of Ubuntu.
 FROM   ubuntu:14.04
-FROM   debian:latest
 
 
 # Make sure we don't get notifications we can't answer during building.
@@ -22,7 +21,7 @@ ENV    DEBIAN_FRONTEND noninteractive
 
 # Download and install everything from the repos.
 RUN    apt-get --yes update; apt-get --yes upgrade
-RUN	   apt-get --yes install curl
+RUN    apt-get --yes install curl
 
 
 # Download and install TeamSpeak 3
