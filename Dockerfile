@@ -5,7 +5,7 @@
 # (http://teamspeak.com/).
 #
 # Authors: Isaac Bythewood
-# Updated: Aug 6th, 2014
+# Updated: Dec 9th, 2014
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 FROM  debian:latest
