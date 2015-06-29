@@ -12,12 +12,12 @@
 # Base system is the LTS version of Ubuntu.
 FROM   ubuntu:14.04
 
-# Make sure we don't get notifications we can't answer during building.
-ENV    DEBIAN_FRONTEND noninteractive
-
 # Download and install everything from the repos.
-RUN    apt-get --yes update; apt-get --yes upgrade
-RUN    apt-get --yes install curl
+RUN    DEBIAN_FRONTEND=noninteractive \
+        apt-get -y update && \
+        apt-get -y upgrade && \
+        apt-get install --no-install-recommends -y \
+            curl
 
 # Download and install TeamSpeak 3
 RUN    curl "http://dl.4players.de/ts/releases/3.0.11.3/teamspeak3-server_linux-amd64-3.0.11.3.tar.gz" -o teamspeak3-server_linux-amd64-3.0.11.3.tar.gz
