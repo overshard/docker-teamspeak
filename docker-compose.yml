@@ -1,4 +1,4 @@
-teamspeak:
+server:
   build: .
   command: /start
   ports:
@@ -7,3 +7,4 @@ teamspeak:
    - "30033:30033"
   volumes:
    - "/mnt/teamspeak:/data"
+  restart: always
