@@ -48,7 +48,10 @@ files for ServerAdmin privilege key created and use that token on first connect.
  + `-d=true` allows this to run cleanly as a daemon, remove for debugging
  + `-p` is the port it connects to, `-p=host_port:docker_port`
 
+## Mumble Server Alternative
+
+Benjamin Denhartog has created an alternative [MurMur/Mumble server][2] if you're looking for an alternative to Teamspeak.
 
 [0]: http://www.docker.io/gettingstarted/
 [1]: http://teamspeak.com/
-
+[2]: https://github.com/bddenhartog/docker-murmur
