@@ -24,7 +24,6 @@ RUN    curl "http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-
 RUN    tar zxf teamspeak3-server_linux-amd64-3.0.11.4.tar.gz; mv teamspeak3-server_linux-amd64 /opt/teamspeak; rm teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
 
 #Add user
-
 RUN useradd -s /bin/bash teamspeak
 RUN chown teamspeak /opt/teamspeak -R
 
