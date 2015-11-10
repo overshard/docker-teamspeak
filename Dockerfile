@@ -20,8 +20,8 @@ RUN    DEBIAN_FRONTEND=noninteractive \
             curl
 
 # Download and install TeamSpeak 3
-RUN    curl "http://dl.4players.de/ts/releases/3.0.11.3/teamspeak3-server_linux-amd64-3.0.11.3.tar.gz" -o teamspeak3-server_linux-amd64-3.0.11.3.tar.gz
-RUN    tar zxf teamspeak3-server_linux-amd64-3.0.11.3.tar.gz; mv teamspeak3-server_linux-amd64 /opt/teamspeak; rm teamspeak3-server_linux-amd64-3.0.11.3.tar.gz
+RUN    curl "http://dl.4players.de/ts/releases/3.0.11.4/teamspeak3-server_linux-amd64-3.0.11.4.tar.gz" -o teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
+RUN    tar zxf teamspeak3-server_linux-amd64-3.0.11.4.tar.gz; mv teamspeak3-server_linux-amd64 /opt/teamspeak; rm teamspeak3-server_linux-amd64-3.0.11.4.tar.gz
 
 # Load in all of our config files.
 ADD    ./scripts/start /start
