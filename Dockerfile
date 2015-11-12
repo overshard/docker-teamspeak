@@ -9,7 +9,7 @@
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
-# Base system is the LTS version of Ubuntu
+# Base system is the LTS version of Ubuntu.
 FROM   ubuntu:14.04
 
 # Set the Teamspeak version to download
