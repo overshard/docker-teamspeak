@@ -4,7 +4,7 @@ server:
   ports:
    - "9987:9987/udp"
    - "30033:30033"
-   - "127.0.0.1:10011:10011"
+   - "10011:10011"
   volumes:
    - "/mnt/teamspeak:/data"
   restart: always

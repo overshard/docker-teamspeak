@@ -9,8 +9,8 @@
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
-# Base system is Ubuntu 15.10
-FROM   ubuntu:15.10
+# Base system is the LTS version of Ubuntu
+FROM   ubuntu:14.04
 
 # Set the Teamspeak version to download
 ENV tsv=3.0.11.4
