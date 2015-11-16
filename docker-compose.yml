@@ -3,8 +3,8 @@ server:
   command: /start
   ports:
    - "9987:9987/udp"
-   - "10011:10011"
    - "30033:30033"
+   - "10011:10011"
   volumes:
    - "/mnt/teamspeak:/data"
   restart: always
