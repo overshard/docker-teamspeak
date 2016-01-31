@@ -12,34 +12,49 @@ docker-teamspeak and TeamSpeak itself.
 
     git clone https://github.com/overshard/docker-teamspeak
     cd docker-teamspeak
-    docker build -t overshard/teamspeak .
-
+    ./ts3-build.sh
 
 ## Running docker-teamspeak
 
-Running the first time will set your port to a static port of your choice so
-that you can easily map a proxy to. If this is the only thing running on your
-system you can map the ports to 9987, 10011, 30033 and no proxy is needed. i.e.
-`-p=9987:9987/udp  -p=10011:10011 -p=30033:30033` Also be sure your mounted
-directory on your host machine is already created before running
-`mkdir -p /mnt/teamspeak`.
+If nothing else is running on ports 9987, 10011 or 30033, launching TeamSpeak is a
+simple case of running:
 
-    sudo docker run -d=true -p=9987:9987/udp -p=10011:10011 -p=30033:30033 -v=/mnt/teamspeak:/data overshard/teamspeak /start
+    ./ts3-run.sh
 
-From now on when you start/stop docker-teamspeak you should use the container id
-with the following commands. To get your container id, after you initial run
-type `sudo docker ps` and it will show up on the left side followed by the image
-name which is `overshard/teamspeak:latest`.
+Note: If you get an error about being unable to gain access to docker, you may
+need to add yourself to the `docker` group or prepend `sudo` to the `ts3-*` scripts
+and all `docker` commands.
 
-    sudo docker start <container_id>
-    sudo docker stop <container_id>
+If the ports are in use, you can remap them by changing the ports in the teamspeak
+container's `docker run` command.  Look for `-p=9987:9987/udp -p=10011:10011
+-p=30033:30033` etc.
 
+You can start and stop TeamSpeak by running:
+
+    docker start teamspeak
+    docker stop teamspeak
+
+## Managing TeamSpeak's data
+
+The TeamSpeak server's data is stored in a data-only container called `teamspeak-data`.
+
+A backup with the current date and time can be created by running:
+
+    ./ts3-backup.sh
+
+That backup can be restored with:
+
+    ./ts3-restore.sh <archiveName>
+
+All data can be erased by deleting the data-only container and then re-creating it:
+
+    docker rm teamspeak-data
+    ./ts3-run.sh
 
 ## Server Admin Token
 
-You can find the server admin token in /mnt/teamspeak/logs/, search the log
-files for ServerAdmin privilege key created and use that token on first connect.
-
+You can find the server admin token by running `docker logs teamspeak` upon first run of the server.
+Search for "ServerAdmin privilege key created" and use that token on first connect.
 
 ### Notes on the run command
 
