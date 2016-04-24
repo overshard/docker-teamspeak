@@ -29,5 +29,4 @@ fi
 # Run the teamspeak server
 export LD_LIBRARY_PATH=/opt/teamspeak
 cd /opt/teamspeak
-./ts3server_linux_amd64 logpath=/data/logs/
-
+./ts3server logpath=/data/logs/

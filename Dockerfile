@@ -10,19 +10,21 @@
 # -----------------------------------------------------------------------------
 
 # Base system is Ubuntu 15.10
-FROM   ubuntu:15.10
+FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
-ENV tsv=3.0.11.4
+ENV TSV=3.0.12.3
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
         apt-get -y update && \
-        apt-get -y upgrade
+        apt-get -y install bzip2
 
 # Download and install TeamSpeak 3
-ADD    http://dl.4players.de/ts/releases/${tsv}/teamspeak3-server_linux-amd64-${tsv}.tar.gz ./
-RUN    tar zxf teamspeak3-server_linux-amd64-${tsv}.tar.gz; mv teamspeak3-server_linux-amd64 /opt/teamspeak; rm teamspeak3-server_linux-amd64-${tsv}.tar.gz
+ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
+       mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
+       rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
 
 #Add user
 RUN useradd -s /bin/bash teamspeak
