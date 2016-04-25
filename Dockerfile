@@ -9,7 +9,7 @@
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
-# Base system is Ubuntu 15.10
+# Base system is Ubuntu 16.04
 FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
