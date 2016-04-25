@@ -25,8 +25,7 @@ then
     ln -s /data/ts3server.sqlitedb /opt/teamspeak/ts3server.sqlitedb
 fi
 
-
 # Run the teamspeak server
 export LD_LIBRARY_PATH=/opt/teamspeak
 cd /opt/teamspeak
-./ts3server logpath=/data/logs/
+./ts3server logpath=/data/logs

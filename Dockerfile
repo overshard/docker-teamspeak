@@ -41,6 +41,8 @@ EXPOSE 9987/udp
 EXPOSE 30033
 EXPOSE 10011
 
+RUN     mkdir /data && chown teamspeak:teamspeak /data
 VOLUME ["/data"]
-USER	teamspeak
+
+USER   teamspeak
 CMD    ["/start"]
