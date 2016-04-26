@@ -37,7 +37,7 @@ name which is `overshard/teamspeak:latest`.
 ## File Permissions
 
 Docker has no way to change file permissions at runtime without being root. Because of that you have to make sure every file you want the container to use (database or previous logs) is owned by uid and gid 1000.   
-Run `chown 1000:1000 <filename(s)>` on every file or alternatively `chown -R 1000:1000 <data diretory>`   
+Run `chown 1000:1000 <filename(s)>` on every file or Run `chown -R 1000:1000 /mnt/teamspeak` to fix all permissions recursively.   
 
 ## docker-compose
 
