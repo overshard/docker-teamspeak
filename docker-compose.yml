@@ -8,7 +8,7 @@ services:
           - "30033:30033"
           - "10011:10011"
         volumes:
-            - teamspeak-data:/data
+            - teamspeak-data:/data:Z
         restart: always
 volumes:
     teamspeak-data:
