@@ -34,11 +34,27 @@ name which is `overshard/teamspeak:latest`.
     sudo docker start <container_id>
     sudo docker stop <container_id>
 
+## File Permissions
+
+Docker has no way to change file permissions at runtime without being root. Because of that you have to make sure every file you want the container to use (database or previous logs) is owned by uid and gid 1000.   
+Run `chown 1000:1000 <filename(s)>` on every file or Run `chown -R 1000:1000 /mnt/teamspeak` to fix all permissions recursively.   
+
+## docker-compose
+
+You can use docker-compose to simplify the process of building and running.   
+If you do not wish to import an existing database or logfiles just run:
+
+    sudo docker-compose up
+This will build and run the container.   
+If you want to import existing logs or a database read `File Permissions` first.
 
 ## Server Admin Token
 
 You can find the server admin token in /mnt/teamspeak/logs/, search the log
 files for ServerAdmin privilege key created and use that token on first connect.
+
+Alternatively you can run `docker logs <container_id>` which will display    
+the logfile.
 
 
 ### Notes on the run command
