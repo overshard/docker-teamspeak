@@ -57,12 +57,17 @@ Alternatively you can run `docker logs <container_id>` which will display
 the logfile.
 
 
-### Notes on the run command
+## Notes on the run command
 
  + `-v` is the volume you are mounting `-v=host_dir:docker_dir`
  + `overshard/teamspeak` is simply what I called my docker build of this image
  + `-d=true` allows this to run cleanly as a daemon, remove for debugging
  + `-p` is the port it connects to, `-p=host_port:docker_port`
+
+## Major Contributors
+
+ + [overshard][3]
+ + [giant3gg][4]
 
 ## Mumble Server Alternative
 
@@ -71,3 +76,6 @@ Benjamin Denhartog has created an alternative [MurMur/Mumble server][2] if you'r
 [0]: http://www.docker.io/gettingstarted/
 [1]: http://teamspeak.com/
 [2]: https://github.com/bddenhartog/docker-murmur
+[3]: https://github.com/overshard
+[4]: https://github.com/giant3gg
+
