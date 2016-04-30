@@ -1,10 +1,12 @@
-server:
-  build: .
-  command: /start
-  ports:
-   - "9987:9987/udp"
-   - "30033:30033"
-   - "10011:10011"
-  volumes:
-   - "/mnt/teamspeak:/data"
-  restart: always
+version: '2'
+services:
+    teamspeak:
+        build: .
+        command: /start
+        ports:
+          - "9987:9987/udp"
+          - "30033:30033"
+          - "10011:10011"
+        volumes:
+            - /mnt/teamspeak:/data:Z
+        restart: always
