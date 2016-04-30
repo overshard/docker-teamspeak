@@ -5,7 +5,7 @@
 # (http://teamspeak.com/).
 #
 # Authors: Isaac Bythewood
-# Updated: February 3rd, 2016
+# Updated: April 30th, 2016
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ EXPOSE 9987/udp
 EXPOSE 30033
 EXPOSE 10011
 
-RUN     mkdir /data && chown teamspeak:teamspeak /data
+RUN    useradd teamspeak && mkdir /data && chown teamspeak:teamspeak /data
 VOLUME ["/data"]
 USER   teamspeak
 CMD    ["/start"]
