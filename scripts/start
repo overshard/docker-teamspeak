@@ -25,6 +25,16 @@ then
     ln -s /data/ts3server.sqlitedb /opt/teamspeak/ts3server.sqlitedb
 fi
 
+if [ ! -f /opt/teamspeak/serverkey.dat ] && [ -f /data/license/serverkey.dat ]
+then
+    ln -s /data/license/serverkey.dat /opt/teamspeak/serverkey.dat
+fi
+
+if [ ! -f /opt/teamspeak/licensekey.dat ] && [ -f /data/license/licensekey.dat ]
+then
+    ln -s /data/license/licensekey.dat /opt/teamspeak/licensekey.dat
+fi
+
 # Run the teamspeak server
 export LD_LIBRARY_PATH=/opt/teamspeak
 cd /opt/teamspeak
