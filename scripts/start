@@ -38,7 +38,7 @@ then
     ln -s /data/files /opt/teamspeak/files
 fi
 
-if [ -d /opt/teamspeak/ts3server.sqlitedb ] && [ -d /data/ts3server.sqlitedb ]
+if [ -d /opt/teamspeak/files ] && [ -d /data/files ]
 then
     rm /opt/teamspeak/files
     ln -s /data/files /opt/teamspeak/files
