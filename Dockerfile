@@ -5,7 +5,7 @@
 # (http://teamspeak.com/).
 #
 # Authors: Isaac Bythewood
-# Updated: April 30th, 2016
+# Updated: December 27th, 2016
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@
 FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
-ENV TSV=3.0.13.2
+ENV TSV=3.0.13.6
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
@@ -21,7 +21,10 @@ RUN    DEBIAN_FRONTEND=noninteractive \
         apt-get -y install bzip2
 
 # Download and install TeamSpeak 3
+# Add secondary/backup server as well -- allow users to choose in case of blacklisting.
 ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+#ADD    http://teamspeak.gameserver.gamed.de/ts3/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+
 RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
        mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
        rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
