@@ -5,7 +5,7 @@
 # (http://teamspeak.com/).
 #
 # Authors: Isaac Bythewood
-# Updated: April 30th, 2016
+# Updated: December 27th, 2016
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@
 FROM   ubuntu:16.04
 
 # Set the Teamspeak version to download
-ENV TSV=3.0.13.2
+ENV TSV=3.0.13.6
 
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
