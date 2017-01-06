@@ -4,8 +4,8 @@
 # Builds a basic docker image that can run TeamSpeak
 # (http://teamspeak.com/).
 #
-# Authors: Isaac Bythewood
-# Updated: April 30th, 2016
+# Authors: Isaac Bythewood, Jamie Tanna
+# Updated: January 6th, 2017
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
