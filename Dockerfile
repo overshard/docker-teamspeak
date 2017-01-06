@@ -25,6 +25,8 @@ RUN    DEBIAN_FRONTEND=noninteractive \
 
 # Download and install TeamSpeak 3
 ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+ADD    CHECKSUMS ./
+RUN    sha256sum -c CHECKSUMS
 RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
        mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
        rm teamspeak3-server_linux_amd64-$TSV.tar.bz2
