@@ -18,7 +18,10 @@ ENV TSV=3.0.13.6
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
         apt-get -y update && \
-        apt-get -y install bzip2
+        apt-get -y install bzip2 && \
+        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+        apt-get autoremove -y && \
+        apt-get clean
 
 # Download and install TeamSpeak 3
 ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
