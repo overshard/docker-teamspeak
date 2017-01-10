@@ -4,8 +4,8 @@
 # Builds a basic docker image that can run TeamSpeak
 # (http://teamspeak.com/).
 #
-# Authors: Isaac Bythewood
-# Updated: December 27th, 2016
+# Authors: Isaac Bythewood, Jamie Tanna
+# Updated: January 6th, 2017
 # Require: Docker (http://www.docker.io/)
 # -----------------------------------------------------------------------------
 
@@ -18,12 +18,17 @@ ENV TSV=3.0.13.6
 # Download and install everything from the repos.
 RUN    DEBIAN_FRONTEND=noninteractive \
         apt-get -y update && \
-        apt-get -y install bzip2
+        apt-get -y install bzip2 && \
+        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+        apt-get autoremove -y && \
+        apt-get clean
 
 # Download and install TeamSpeak 3
 # Add secondary/backup server as well -- allow users to choose in case of blacklisting.
 ADD    http://dl.4players.de/ts/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
 #ADD    http://teamspeak.gameserver.gamed.de/ts3/releases/${TSV}/teamspeak3-server_linux_amd64-${TSV}.tar.bz2 ./
+ADD    CHECKSUMS ./
+RUN    sha256sum -c CHECKSUMS
 
 RUN    tar jxf teamspeak3-server_linux_amd64-$TSV.tar.bz2 && \
        mv teamspeak3-server_linux_amd64 /opt/teamspeak && \
