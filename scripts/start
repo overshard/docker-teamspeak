@@ -25,6 +25,27 @@ then
     ln -s /data/ts3server.sqlitedb /opt/teamspeak/ts3server.sqlitedb
 fi
 
+# files
+
+if [ ! -d /opt/teamspeak/files ] && [ -d /data/files ]
+then
+    ln -s /data/files /opt/teamspeak/files
+fi
+
+if [ -d /opt/teamspeak/files ] && [ ! -d /data/files ]
+then
+    mv /opt/teamspeak/files /data/files
+    ln -s /data/files /opt/teamspeak/files
+fi
+
+if [ -d /opt/teamspeak/files ] && [ -d /data/files ]
+then
+    rm /opt/teamspeak/files
+    ln -s /data/files /opt/teamspeak/files
+fi
+
+# licensekey
+
 if [ ! -f /opt/teamspeak/serverkey.dat ] && [ -f /data/license/serverkey.dat ]
 then
     ln -s /data/license/serverkey.dat /opt/teamspeak/serverkey.dat
