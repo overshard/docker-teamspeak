@@ -7,6 +7,8 @@ services:
           - "9987:9987/udp"
           - "30033:30033"
           - "10011:10011"
+        environment:
+	  - TS3SERVER_LICENSE=accept
         volumes:
             - /mnt/teamspeak:/data:Z
         restart: always
