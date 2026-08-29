@@ -1,3 +1,5 @@
+> **Archived.** This project is no longer in use and no longer maintained.
+
 # docker-teamspeak
 
 A nice and easy way to get a TeamSpeak server up and running using docker. For
